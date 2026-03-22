@@ -17,8 +17,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -220,30 +220,30 @@ private fun ControlsInfo(modifier: Modifier = Modifier) {
             Text(
                 text = stringResource(Res.string.left_click),
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.body2,
+                style = MaterialTheme.typography.bodyMedium,
             )
 
-            Text(text = stringResource(Res.string.dig_cell), style = MaterialTheme.typography.body2)
+            Text(text = stringResource(Res.string.dig_cell), style = MaterialTheme.typography.bodyMedium)
         }
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = stringResource(Res.string.right_click),
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.body2,
+                style = MaterialTheme.typography.bodyMedium,
             )
 
-            Text(text = stringResource(Res.string.flag_cell), style = MaterialTheme.typography.body2)
+            Text(text = stringResource(Res.string.flag_cell), style = MaterialTheme.typography.bodyMedium)
         }
 
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = stringResource(Res.string.middle_click),
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.body2,
+                style = MaterialTheme.typography.bodyMedium,
             )
 
-            Text(text = stringResource(Res.string.dig_all_cells), style = MaterialTheme.typography.body2)
+            Text(text = stringResource(Res.string.dig_all_cells), style = MaterialTheme.typography.bodyMedium)
         }
     }
 }
