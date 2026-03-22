@@ -49,6 +49,7 @@ kotlin {
             implementation(libs.decompose.extensions.compose)
             implementation(libs.serialization.json)
             implementation(libs.essenty.lifecycle.coroutines)
+            implementation(libs.materialyou)
         }
 
         commonTest.dependencies {

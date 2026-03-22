@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -82,59 +83,63 @@ fun GameContent(component: GameComponent, modifier: Modifier = Modifier) {
     val timer by derivedStateOf { state.timer }
 
     CompositionLocalProvider(LocalGameIcons provides gameIcons()) {
-        Box(modifier = modifier, contentAlignment = Alignment.Center) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround
-                ) {
-                    Counter(
-                        value = remainingMines,
-                        contentDescription = stringResource(Res.string.desc_mines_left, remainingMines),
-                        modifier = Modifier.weight(1f),
-                    )
+        Surface(
+            tonalElevation = 8.dp,
+        ) {
+            Box(modifier = modifier, contentAlignment = Alignment.Center) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceAround
+                    ) {
+                        Counter(
+                            value = remainingMines,
+                            contentDescription = stringResource(Res.string.desc_mines_left, remainingMines),
+                            modifier = Modifier.weight(1f),
+                        )
 
-                    RestartButton(
-                        isWin = gameStatus == GameStatus.WIN,
-                        isFailed = gameStatus == GameStatus.FAILED,
-                        isTrying = pressMode != PressMode.NONE,
-                        onClick = component::onRestartClicked,
-                    )
+                        RestartButton(
+                            isWin = gameStatus == GameStatus.WIN,
+                            isFailed = gameStatus == GameStatus.FAILED,
+                            isTrying = pressMode != PressMode.NONE,
+                            onClick = component::onRestartClicked,
+                        )
 
-                    Counter(
-                        value = timer,
-                        contentDescription = stringResource(Res.string.desc_duration, timer),
-                        modifier = Modifier.weight(1f),
-                    )
-                }
+                        Counter(
+                            value = timer,
+                            contentDescription = stringResource(Res.string.desc_duration, timer),
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
-                Row(
-                    modifier = Modifier.touchHandler(
-                        gridWidth = gridWidth,
-                        gridHeight = gridHeight,
-                        onPrimaryTouched = component::onCellTouchedPrimary,
-                        onSecondaryPressed = component::onCellPressedSecondary,
-                        onTertiaryTouched = component::onCellTouchedTertiary,
-                        onReleased = component::onCellReleased,
-                    ),
-                ) {
-                    repeat(gridWidth) { x ->
-                        Column(modifier = Modifier.width(cellSize)) {
-                            repeat(gridHeight) { y ->
-                                CellContent(
-                                    cell = grid.getValue(x by y),
-                                    modifier = Modifier.fillMaxWidth().height(cellSize),
-                                )
+                    Row(
+                        modifier = Modifier.touchHandler(
+                            gridWidth = gridWidth,
+                            gridHeight = gridHeight,
+                            onPrimaryTouched = component::onCellTouchedPrimary,
+                            onSecondaryPressed = component::onCellPressedSecondary,
+                            onTertiaryTouched = component::onCellTouchedTertiary,
+                            onReleased = component::onCellReleased,
+                        ),
+                    ) {
+                        repeat(gridWidth) { x ->
+                            Column(modifier = Modifier.width(cellSize)) {
+                                repeat(gridHeight) { y ->
+                                    CellContent(
+                                        cell = grid.getValue(x by y),
+                                        modifier = Modifier.fillMaxWidth().height(cellSize),
+                                    )
+                                }
                             }
                         }
                     }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    ControlsInfo()
                 }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                ControlsInfo()
             }
         }
     }
