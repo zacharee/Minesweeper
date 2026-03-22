@@ -3,7 +3,7 @@ package com.arkivanov.minesweeper.settings
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.minesweeper.game.GameSettings
 
-internal interface EditSettingsComponent {
+interface EditSettingsComponent {
 
     val model: Value<Model>
 

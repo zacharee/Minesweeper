@@ -10,7 +10,7 @@ import com.arkivanov.decompose.value.Value
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
 
-internal fun <C : Any, T : Any> ComponentContext.child(
+fun <C : Any, T : Any> ComponentContext.child(
     source: NavigationSource<C>,
     serializer: KSerializer<C>,
     initialConfiguration: () -> C,

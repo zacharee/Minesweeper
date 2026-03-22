@@ -6,7 +6,7 @@ import com.arkivanov.decompose.value.update
 import com.arkivanov.minesweeper.game.GameSettings
 import com.arkivanov.minesweeper.settings.EditSettingsComponent.Model
 
-internal class DefaultEditSettingsComponent(
+class DefaultEditSettingsComponent(
     settings: GameSettings,
     private val onConfirmed: (GameSettings) -> Unit,
     private val onDismissed: () -> Unit,

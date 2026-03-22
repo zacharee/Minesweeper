@@ -18,7 +18,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.seconds
 
 @OptIn(ExperimentalCoroutinesApi::class)
-internal class DefaultGameComponent(
+class DefaultGameComponent(
     componentContext: ComponentContext,
     storeFactory: StoreFactory,
     settings: GameSettings,

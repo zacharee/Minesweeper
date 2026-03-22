@@ -7,8 +7,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -19,11 +17,11 @@ import com.arkivanov.minesweeper.settings.EditSettingsContent
 import minesweeper.composeapp.generated.resources.Res
 import minesweeper.composeapp.generated.resources.app_name
 import minesweeper.composeapp.generated.resources.settings
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.resources.vectorResource
 
 @Composable
-internal fun RootContent(component: RootComponent) {
+fun RootContent(component: RootComponent) {
     val gameComponent by component.gameComponent.subscribeAsState()
     val editSettingsComponentSlot by component.editSettingsComponent.subscribeAsState()
 
@@ -34,7 +32,7 @@ internal fun RootContent(component: RootComponent) {
                 actions = {
                     IconButton(onClick = component::onEditSettingsClicked) {
                         Icon(
-                            imageVector = Icons.Default.Settings,
+                            imageVector = vectorResource(Res.drawable.settings),
                             contentDescription = stringResource(Res.string.settings),
                         )
                     }

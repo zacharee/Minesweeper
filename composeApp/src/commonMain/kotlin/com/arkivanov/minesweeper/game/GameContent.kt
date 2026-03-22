@@ -71,7 +71,7 @@ private val cellSize = 16.dp
 private const val COUNTER_LENGTH = 3
 
 @Composable
-internal fun GameContent(component: GameComponent, modifier: Modifier = Modifier) {
+fun GameContent(component: GameComponent, modifier: Modifier = Modifier) {
     val state by component.state.subscribeAsState()
     val gameStatus by derivedStateOf { state.gameStatus }
     val pressMode by derivedStateOf { state.pressMode }
@@ -334,11 +334,11 @@ private fun Modifier.touchHandler(
 
 @Preview
 @Composable
-internal fun GameContentPreview() {
+fun GameContentPreview() {
     GameContent(component = PreviewGameComponent(), modifier = Modifier.fillMaxSize())
 }
 
-internal class PreviewGameComponent : GameComponent {
+class PreviewGameComponent : GameComponent {
     override val state: Value<GameState> =
         MutableValue(
             GameState(

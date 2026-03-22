@@ -5,7 +5,7 @@ import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.core.store.create
 
-internal sealed interface Intent {
+sealed interface Intent {
     data class PressCell(val x: Int, val y: Int) : Intent
     data class PressCells(val x: Int, val y: Int) : Intent
     data class ReleaseCells(val x: Int, val y: Int) : Intent
@@ -14,14 +14,14 @@ internal sealed interface Intent {
     data object Restart : Intent
 }
 
-internal fun StoreFactory.gameStore(state: GameState): Store<Intent, GameState, Nothing> =
+fun StoreFactory.gameStore(state: GameState): Store<Intent, GameState, Nothing> =
     create(
         name = "GameStore",
         initialState = state,
         reducer = { reduce(it) },
     )
 
-internal fun newGameState(width: Int, height: Int, maxMines: Int): GameState =
+fun newGameState(width: Int, height: Int, maxMines: Int): GameState =
     GameState(
         width = width,
         height = height,

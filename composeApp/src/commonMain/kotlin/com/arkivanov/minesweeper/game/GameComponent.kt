@@ -3,7 +3,7 @@ package com.arkivanov.minesweeper.game
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.Value
 
-internal interface GameComponent {
+interface GameComponent {
 
     val state: Value<GameState>
 

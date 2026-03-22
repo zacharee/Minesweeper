@@ -2,9 +2,10 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinMultiplatformAndroidLibrary)
     alias(libs.plugins.serialization)
 }
 
@@ -24,6 +25,13 @@ kotlin {
     }
 
     jvm()
+    android {
+        withJava()
+
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        namespace = "com.arkivanov.minesweeper"
+    }
 
     sourceSets {
         commonMain.dependencies {
@@ -51,6 +59,10 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.coroutines.swing)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.coroutines.android)
         }
     }
 }

@@ -17,7 +17,7 @@ import com.arkivanov.minesweeper.settings.EditSettingsComponent
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import kotlinx.coroutines.Dispatchers
 
-internal class DefaultRootComponent(
+class DefaultRootComponent(
     componentContext: ComponentContext,
     gameComponentFactory: GameComponent.Factory,
     editSettingsComponentFactory: EditSettingsComponent.Factory,
@@ -57,7 +57,7 @@ internal class DefaultRootComponent(
     }
 }
 
-internal fun DefaultRootComponent(componentContext: ComponentContext, storeFactory: StoreFactory): DefaultRootComponent =
+fun DefaultRootComponent(componentContext: ComponentContext, storeFactory: StoreFactory): DefaultRootComponent =
     DefaultRootComponent(
         componentContext = componentContext,
         gameComponentFactory = { ctx, settings ->

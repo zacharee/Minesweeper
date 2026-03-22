@@ -26,7 +26,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-internal fun EditSettingsContent(component: EditSettingsComponent) {
+fun EditSettingsContent(component: EditSettingsComponent) {
     val model by component.model.subscribeAsState()
 
     Dialog(onDismissRequest = component::onDismissRequested) {

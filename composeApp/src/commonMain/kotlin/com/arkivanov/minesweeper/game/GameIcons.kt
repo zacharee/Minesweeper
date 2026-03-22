@@ -36,7 +36,7 @@ import minesweeper.composeapp.generated.resources.digit_9
 import minesweeper.composeapp.generated.resources.digit_minus
 import org.jetbrains.compose.resources.painterResource
 
-internal data class GameIcons(
+data class GameIcons(
     val cellClosed: Painter,
     val cellClosedFlag: Painter,
     val cellOpen: Painter,
@@ -51,7 +51,7 @@ internal data class GameIcons(
 )
 
 @Composable
-internal fun gameIcons(): GameIcons =
+fun gameIcons(): GameIcons =
     GameIcons(
         cellClosed = painterResource(Res.drawable.cell_closed),
         cellClosedFlag = painterResource(Res.drawable.cell_closed_flag),
@@ -87,9 +87,9 @@ internal fun gameIcons(): GameIcons =
         ),
     )
 
-internal val LocalGameIcons: ProvidableCompositionLocal<GameIcons?> =
+val LocalGameIcons: ProvidableCompositionLocal<GameIcons?> =
     compositionLocalOf { null }
 
-internal val CompositionLocal<GameIcons?>.icons: GameIcons
+val CompositionLocal<GameIcons?>.icons: GameIcons
     @Composable
     get() = requireNotNull(current)
