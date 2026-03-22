@@ -17,6 +17,7 @@ import com.arkivanov.minesweeper.settings.EditSettingsContent
 import minesweeper.composeapp.generated.resources.Res
 import minesweeper.composeapp.generated.resources.app_name
 import minesweeper.composeapp.generated.resources.settings
+import minesweeper.composeapp.generated.resources.settings_24px
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 
@@ -32,7 +33,7 @@ fun RootContent(component: RootComponent) {
                 actions = {
                     IconButton(onClick = component::onEditSettingsClicked) {
                         Icon(
-                            imageVector = vectorResource(Res.drawable.settings),
+                            imageVector = vectorResource(Res.drawable.settings_24px),
                             contentDescription = stringResource(Res.string.settings),
                         )
                     }
